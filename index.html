@@ -41,25 +41,34 @@
 
             display: flex;
             align-items: center;
-            justify-content: space-between;
+header {
+    height: 73px;
+    background: #fffaf0;
+    border-bottom: 2px solid #ff746d;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 18%;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
 
             padding: 0 18%;
 
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
         }
 
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 8px;
+.logo {
+    display: flex;
+    align-items: center;
+}
 
-            font-size: 24px;
-            font-weight: 900;
-        }
-
-        .logo-icon {
-            font-size: 25px;
-        }
+.logo img {
+    width: 140px;
+    height: auto;
+    display: block;
+}
 
         .header-right {
             font-size: 21px;
@@ -406,20 +415,11 @@
 
 <header>
 
-    <div class="logo">
+<div class="logo">
 
-        <span class="logo-icon">🦐</span>
+    <img src="logo.png" alt="蝦賺筆記">
 
-        <span>蝦賺筆記</span>
-
-    </div>
-
-
-    <div class="header-right">
-
-        🐱 省錢特搜
-
-    </div>
+</div>
 
 </header>
 
