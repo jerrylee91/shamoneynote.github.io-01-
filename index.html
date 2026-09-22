@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>蝦賺筆記｜蝦皮優惠碼</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family:
+                "Noto Sans TC",
+                "Microsoft JhengHei",
+                Arial,
+                sans-serif;
+
+            background: linear-gradient(
+                180deg,
+                #ffd45c 0%,
+                #ffd95f 100%
+            );
+
+            min-height: 100vh;
+            color: #333;
+        }
+
+        /* =========================
+           頂部
+        ========================= */
+
+        header {
+            height: 73px;
+            background: #fffaf0;
+            border-bottom: 2px solid #ff746d;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 18%;
+
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+
+            font-size: 24px;
+            font-weight: 900;
+        }
+
+        .logo-icon {
+            font-size: 25px;
+        }
+
+        .header-right {
+            font-size: 21px;
+            font-weight: 900;
+        }
+
+
+        /* =========================
+           主內容
+        ========================= */
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+
+        /* =========================
+           標題
+        ========================= */
+
+        .hero {
+            text-align: center;
+            padding: 26px 0 28px;
+        }
+
+        .hero h1 {
+            color: white;
+
+            font-size: 38px;
+            line-height: 1.35;
+
+            font-weight: 900;
+
+            text-shadow:
+                0 3px 6px rgba(0, 0, 0, 0.25);
+        }
+
+        .hero p {
+            margin-top: 10px;
+
+            color: white;
+
+            font-size: 16px;
+            font-weight: 700;
+
+            text-shadow:
+                0 2px 4px rgba(0, 0, 0, 0.15);
+        }
+
+
+        /* =========================
+           優惠碼區塊
+        ========================= */
+
+        .coupon-box {
+            background: rgba(255, 251, 240, 0.96);
+
+            border-radius: 22px;
+
+            padding: 30px 26px;
+
+            box-shadow:
+                0 10px 25px rgba(0, 0, 0, 0.13);
+        }
+
+        .section-title {
+            font-size: 27px;
+            font-weight: 900;
+
+            margin-bottom: 24px;
+
+            color: #111;
+        }
+
+
+        /* =========================
+           優惠券
+        ========================= */
+
+        .coupon {
+            margin-bottom: 22px;
+        }
+
+        .coupon:last-child {
+            margin-bottom: 0;
+        }
+
+        .coupon-title {
+            color: #ff315b;
+
+            font-size: 19px;
+            font-weight: 900;
+
+            margin-bottom: 9px;
+        }
+
+        .coupon-description {
+            color: #777;
+
+            font-size: 14px;
+
+            margin-bottom: 10px;
+        }
+
+
+        /* =========================
+           按鈕
+        ========================= */
+
+        .coupon-button {
+            width: 100%;
+
+            border: none;
+            border-radius: 12px;
+
+            padding: 16px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #ff7474,
+                    #ff963b
+                );
+
+            color: white;
+
+            font-size: 18px;
+            font-weight: 900;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 5px 10px rgba(0, 0, 0, 0.18);
+
+            transition: 0.2s;
+        }
+
+        .coupon-button:hover {
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .coupon-button:active {
+            transform: scale(0.98);
+        }
+
+
+        /* =========================
+           社群
+        ========================= */
+
+        .community {
+            text-align: center;
+
+            margin-top: 65px;
+            padding-bottom: 60px;
+        }
+
+        .community-title {
+            color: #ff4f4f;
+
+            font-size: 19px;
+            font-weight: 900;
+
+            margin-bottom: 15px;
+        }
+
+        .community-buttons {
+            display: flex;
+            justify-content: center;
+
+            gap: 15px;
+
+            flex-wrap: wrap;
+        }
+
+        .community-button {
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            padding: 10px 20px;
+
+            border-radius: 13px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #ff7777,
+                    #ff9638
+                );
+
+            color: white;
+
+            text-decoration: none;
+
+            font-size: 16px;
+            font-weight: 800;
+
+            box-shadow:
+                0 4px 8px rgba(0, 0, 0, 0.12);
+
+            transition: 0.2s;
+        }
+
+        .community-button:hover {
+            transform: translateY(-2px);
+        }
+
+
+        /* =========================
+           複製成功提示
+        ========================= */
+
+        .toast {
+            position: fixed;
+
+            left: 50%;
+            bottom: 30px;
+
+            transform:
+                translateX(-50%)
+                translateY(100px);
+
+            background: #333;
+
+            color: white;
+
+            padding: 14px 24px;
+
+            border-radius: 50px;
+
+            font-size: 15px;
+            font-weight: 700;
+
+            opacity: 0;
+
+            transition: all 0.3s ease;
+
+            z-index: 9999;
+
+            box-shadow:
+                0 5px 20px rgba(0, 0, 0, 0.25);
+
+            white-space: nowrap;
+        }
+
+        .toast.show {
+            opacity: 1;
+
+            transform:
+                translateX(-50%)
+                translateY(0);
+        }
+
+
+        /* =========================
+           手機版
+        ========================= */
+
+        @media (max-width: 768px) {
+
+            header {
+                height: 62px;
+
+                padding: 0 18px;
+            }
+
+            .logo {
+                font-size: 20px;
+            }
+
+            .logo-icon {
+                font-size: 21px;
+            }
+
+            .header-right {
+                font-size: 17px;
+            }
+
+            .hero {
+                padding: 24px 0 22px;
+            }
+
+            .hero h1 {
+                font-size: 29px;
+            }
+
+            .hero p {
+                font-size: 13px;
+            }
+
+            .container {
+                width: 94%;
+            }
+
+            .coupon-box {
+                padding: 24px 18px;
+
+                border-radius: 18px;
+            }
+
+            .section-title {
+                font-size: 22px;
+            }
+
+            .coupon-title {
+                font-size: 18px;
+            }
+
+            .coupon-button {
+                padding: 15px;
+
+                font-size: 17px;
+            }
+
+            .community {
+                margin-top: 45px;
+            }
+
+            .toast {
+                font-size: 14px;
+
+                max-width: 90%;
+
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     Header
+========================= -->
+
+<header>
+
+    <div class="logo">
+
+        <span class="logo-icon">🦐</span>
+
+        <span>蝦賺筆記</span>
+
+    </div>
+
+
+    <div class="header-right">
+
+        🐱 省錢特搜
+
+    </div>
+
+</header>
+
+
+
+<!-- =========================
+     主內容
+========================= -->
+
+<main class="container">
+
+
+    <!-- 標題 -->
+
+    <section class="hero">
+
+        <h1>
+            蝦皮優惠碼<br>
+            一鍵領取
+        </h1>
+
+        <p>
+            點擊按鈕，自動複製優惠碼並前往優惠頁面
+        </p>
+
+    </section>
+
+
+
+    <!-- =========================
+         優惠碼
+    ========================= -->
+
+    <section class="coupon-box">
+
+        <h2 class="section-title">
+            點擊按鈕自動複製優惠碼
+        </h2>
+
+
+
+        <!-- 優惠碼 1 -->
+
+        <div class="coupon">
+
+            <div class="coupon-title">
+                全站100-20券
+            </div>
+
+            <div class="coupon-description">
+                全站商品滿額即可使用
+            </div>
+
+            <button
+                class="coupon-button"
+                onclick="copyAndOpen(
+                    'ABC123',
+                    'https://shopee.tw/'
+                )">
+
+                輸碼領券
+
+            </button>
+
+        </div>
+
+
+
+        <!-- 優惠碼 2 -->
+
+        <div class="coupon">
+
+            <div class="coupon-title">
+                商城299-30券
+            </div>
+
+            <div class="coupon-description">
+                指定商城商品適用
+            </div>
+
+            <button
+                class="coupon-button"
+                onclick="copyAndOpen(
+                    'XYZ456',
+                    'https://shopee.tw/'
+                )">
+
+                輸碼領券
+
+            </button>
+
+        </div>
+
+
+
+        <!-- 優惠碼 3 -->
+
+        <div class="coupon">
+
+            <div class="coupon-title">
+                全站999-100券
+            </div>
+
+            <div class="coupon-description">
+                消費滿額即可折抵
+            </div>
+
+            <button
+                class="coupon-button"
+                onclick="copyAndOpen(
+                    'QWE789',
+                    'https://shopee.tw/'
+                )">
+
+                輸碼領券
+
+            </button>
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =========================
+         社群
+    ========================= -->
+
+    <section class="community">
+
+        <div class="community-title">
+
+            歡迎加入我的省錢社群 ✨
+
+        </div>
+
+
+        <div class="community-buttons">
+
+            <a
+                class="community-button"
+                href="https://reurl.cc/eVqV3W"
+                target="_blank"
+                rel="noopener">
+
+                LINE
+
+            </a>
+
+
+            <a
+                class="community-button"
+                href="#"
+                target="_blank">
+
+                Threads
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+
+<!-- =========================
+     提示訊息
+========================= -->
+
+<div
+    id="toast"
+    class="toast">
+
+    ✓ 優惠碼已複製，正在前往優惠頁面...
+
+</div>
+
+
+
+<script>
+
+    /*
+    ============================================
+    複製優惠碼 + 開啟指定網址
+    ============================================
+    */
+
+    function copyAndOpen(code, url) {
+
+        /*
+        先開啟指定網址。
+
+        放在點擊事件裡，可以降低手機瀏覽器
+        阻擋新視窗的機率。
+        */
+
+        const newWindow = window.open(
+            url,
+            "_blank"
+        );
+
+
+        /*
+        複製優惠碼
+        */
+
+        if (
+            navigator.clipboard &&
+            window.isSecureContext
+        ) {
+
+            navigator.clipboard
+                .writeText(code)
+                .then(function() {
+
+                    showToast();
+
+                })
+                .catch(function() {
+
+                    fallbackCopy(code);
+
+                    showToast();
+
+                });
+
+        } else {
+
+            fallbackCopy(code);
+
+            showToast();
+
+        }
+
+    }
+
+
+
+    /*
+    ============================================
+    顯示提示
+    ============================================
+    */
+
+    function showToast() {
+
+        const toast =
+            document.getElementById("toast");
+
+        toast.classList.add("show");
+
+
+        setTimeout(function() {
+
+            toast.classList.remove("show");
+
+        }, 2500);
+
+    }
+
+
+
+    /*
+    ============================================
+    傳統複製方式
+    ============================================
+    */
+
+    function fallbackCopy(text) {
+
+        const textarea =
+            document.createElement("textarea");
+
+        textarea.value = text;
+
+        textarea.style.position = "fixed";
+
+        textarea.style.left = "-9999px";
+
+        textarea.style.top = "0";
+
+        document.body.appendChild(textarea);
+
+        textarea.focus();
+
+        textarea.select();
+
+        try {
+
+            document.execCommand("copy");
+
+        } catch (error) {
+
+            console.log(
+                "無法自動複製優惠碼"
+            );
+
+        }
+
+        document.body.removeChild(textarea);
+
+    }
+
+</script>
+
+
+</body>
+</html>
